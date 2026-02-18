@@ -18,8 +18,8 @@ public class CalculatorController2 {
 
     @GetMapping("/name")
     public ResponseEntity<String> input(@RequestParam String name, @RequestParam int age) {
-        if (age <= 0) {
-            return ResponseEntity.badRequest().body("Error: Age cannot be less than zero!.");
+        if (age <= 0 || age > 100) {
+            return ResponseEntity.badRequest().body("Error: Age cannot be less than zero and higher than 100!.");
         }
         if (name.length()>24) {
             return ResponseEntity.badRequest().body("Error: Please write a shorter name!.");
