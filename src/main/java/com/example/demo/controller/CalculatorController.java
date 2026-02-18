@@ -25,10 +25,11 @@ public class CalculatorController {
 
     @GetMapping("/divide")
     public ResponseEntity<?> divide(@RequestParam int a, @RequestParam int b) {
-        int result = calculatorService.divide(a,b);
+
         if (b==0) {
             return ResponseEntity.badRequest().body("Division by zero is not allowed!");
         }
+        int result = calculatorService.divide(a,b);
         return ResponseEntity.ok(result);
     }
 }
